@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/panel_de_control.css' %}">
+
+<section class="panel_control">
+    <div class="panel_accesos">
+        <h3 class="panel_usuario_nombre mt-4">{{ user.username }}</h3>
+        <h4 class="panel_usuario_menu">Menú</h4>
+        <div class="enlaces">
+            <a class="btn btn-primary" href="{% url 'datos_usuario' %}">Mis Datos</a>
+            <a class="btn btn-primary" href="">Solicitar Servicio</a>
+            <a class="btn btn-primary" href="">Realizar Consulta</a>
+            <a class="btn btn-primary" href="">Ver Mis Consultas</a>
+            <a class="btn btn-primary" href="">Mensajes Recibidos</a>
+            <a class="btn btn-danger" href="">Eliminar Cuenta</a>
+        </div>
+    </div>
+    <div class="panel_contenido card card-body py-5 saludo">
+        <div class="contenido_borde">
+            <h1 class="display-1">Bienvenido/a</h1>
+            <p>
+                Desde este espacio usted podrá contratar nuestros servicios, solicitar presupuestos, realizar cualquier tipo de consultas, etc.
+            </p>
+            <p>
+                Muchas gracias por utilizar nuestra plataforma y no dude en realizar su consulta. Saludos cordiales.
+            </p>
+        </div>
+    </div>
+    {% block contenido_panel %}
+    {% endblock %}
+</section>
+
+{% endblock %}

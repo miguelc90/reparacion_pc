@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<section class="inicio-sesion">
+    <div id="logo"> 
+        <h1><i> SERVICIO TECNICO</i></h1>
+    </div>
+    <section class="stark-login">
+        <form action="{% url 'sesion' %}" method="POST">
+            {% csrf_token %}	
+            <div id="fade-box"> 
+                <input class="form-control" type="text" name="username" id="username" placeholder="Username" required>
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
+                <button>Iniciar Sesion</button> 
+            </div>
+        </form>
+    </section>
+    <h4 class="text-warning mt-3">{{error}}</h4>   
+    <h4 class="text-warning mt-3">{{mensaje}}</h4>   
+</section>
+
+{% endblock %}
+              
+              

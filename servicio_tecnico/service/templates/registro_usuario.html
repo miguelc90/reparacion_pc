@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<section class="inicio-sesion">
+    <div id="logo"> 
+        <h1><i> SERVICIO TECNICO</i></h1>
+    </div>
+    <section class="stark-login">
+        <form id="formRegistro" method="POST">
+            {% csrf_token %}	
+            <div id="fade-box">
+                <input class="form-control" type="text" name="username" id="username" placeholder="Nombre de usuario" required>
+                <input class="form-control" type="password" name="password1" id="password1" placeholder="Contraseña" required>
+                <input class="form-control" type="password" name="password2" id="password2" placeholder="Repita su contraseña" required>
+                <button><h4 class="mt-1">registrarse</h4></button>
+                <a href="#" class="btn btn-seconadry" onclick="limpiarFormulario()"><h4 class="mt-1">limpiar campos</h4></a> 
+            </div>
+        </form>
+    </section>
+    <h4 class="text-warning mt-3">{{error}}</h4>   
+</section>
+
+{% block js %}
+<script>
+    function limpiarFormulario() {
+        document.getElementById("formRegistro").reset(); // Resetea todos los campos
+    }
+</script>
+{% endblock %}
+
+{% endblock %}
